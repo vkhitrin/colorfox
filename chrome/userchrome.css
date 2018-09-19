@@ -7,50 +7,50 @@
 
 /* Remove focus box and shadow effects from URL bar */
 #urlbar[focused="true"], #urlbar{
-  box-shadow: none !important;
-  outline: none !important;
-  border-color: transparent !important;
+  box-shadow: none!important;
+  outline: none!important;
+  border-color: transparent!important;
 }
 
-/* Color tweaks to buttons */
-#PanelUI-menu-button, #nav-bar-overflow-button, #back-button, #forward-button, #identity-icon, #connection-icon, .tabs-newtab-button, tab .close-icon, #downloads-button, .urlbar-icon, #star-button, .urlbar-history-dropmarker, #pageActionButton, #star-button, .urlbar-go-button, #urlbar[pageproxystate="valid"] > #identity-box.verifiedDomain > #connection-icon, #identity-popup[connection^="secure"] .identity-popup-security-content, .identity-popup-connection-secure, #sidebar-button, #reader-mode-button {
-  color: var(--lwt-text-color) !important;
-  fill: currentColor !important;
+/* Adaptive color tweaks to buttons */
+#PanelUI-menu-button, #nav-bar-overflow-button, #back-button, #forward-button, #identity-icon, #connection-icon, .tabs-newtab-button, tab .close-icon, #downloads-button, .urlbar-icon, #star-button, .urlbar-history-dropmarker, #pageActionButton, #star-button, .urlbar-go-button, #urlbar[pageproxystate="valid"] > #identity-box.verifiedDomain > #connection-icon, #identity-popup[connection^="secure"] .identity-popup-security-content, #sidebar-button, #reader-mode-button, #history-panelmenu, #save-page-button, #find-button, #open-file-button, #add-ons-button, #zoom-out-button, #zoom-in-button, #cut-button, #copy-button, #paste-button, #feed-button, #characterencoding-button, #email-link-button, #sync-button, #preferences-button, #panic-button, #privatebrowsing-button, #developer-button, #webide-button, #print-button, #new-window-button, #fullscreen-button, #bookmarks-menu-button, #home-button, #stop-reload-button, #library-button, toolbarpaletteitem[place="toolbar"][id^="wrapper-customizableui-special-spring"], toolbarspring{
+  color: var(--lwt-text-color)!important;
+  fill: currentColor!important;
 }
 
 /* Move buttons to the right of URL bar */
 #PanelUI-button,
 #customization-panel-container,
 #customization-panelWrapper .panel-arrow, window:not([chromehidden~="toolbar"]) #nav-bar[nonemptyoverflow] > .overflow-button { 
-  -moz-box-ordinal-group: 0 !important;
-  margin-right: 0px !important;
-  color: var(--lwt-text-color) !important;
+  -moz-box-ordinal-group: 0!important;
+  margin-right: 0px!important;
+  color: var(--lwt-text-color)!important;
 }
 
 /* Menu Button */
 #PanelUI-menu-button{
-  list-style-image: url(./icons/menu.svg) !important;
-  margin-left: 10px !important;
+  list-style-image: url(./icons/menu.svg)!important;
+  margin-left: 10px!important;
 }
 
 /* Overflow Button */
 #nav-bar-overflow-button{
-  list-style-image: url(./icons/overflow.svg) !important;
+  list-style-image: url(./icons/overflow.svg)!important;
 }
 
 /* Back button */
 #back-button{
-  list-style-image: url(./icons/back.svg) !important;
+  list-style-image: url(./icons/back.svg)!important;
 }
 
 /* Forward button */
 #forward-button{
-  list-style-image: url(./icons/forward.svg) !important;
+  list-style-image: url(./icons/forward.svg)!important;
 }
 
 /* Identitiy button */
 #identity-icon{
-  list-style-image: url(./icons/info.svg) !important;
+  list-style-image: url(./icons/info.svg)!important;
 }
 
 /* Identitiy label */
@@ -59,18 +59,22 @@
 }
 
 /* URL dropdown button */
-.urlbar-history-dropmarker {
-  list-style-image: url(./icons/globe.svg) !important;
+.urlbar-history-dropmarker, .ac-site-icon {
+  list-style-image: url(./icons/globe.svg)!important;
 }
 
-/* Hide Pocket button */
-#pocket-button {
-  display: none;
+#appMenu-library-pocket-button, #pageAction-panel-pocket, #pocket-button {
+  list-style-image: url(./icons/pocket.svg)!important;
 }
+
+/* Hide Pocket button from URL bar */
+#pocket-button, #pocket-animatable-box {
+  display: none;
+} 
 
 /* Bookmark icon */
-#star-button {
-  list-style-image: url(./icons/bookmark.svg) !important;
+#star-button, #pageAction-panel-bookmark {
+  list-style-image: url(./icons/bookmark.svg)!important;
 }
 
 /* Bookmark animation on press */
@@ -79,138 +83,197 @@
 }
 
 /* Bookmark that has been marked */
-#star-button[starred] {
-  list-style-image: url(./icons/bookmark-starred.svg) !important;
-  color: var(--lwt-text-color) !important;
+#star-button[starred], .ac-type-icon[type="bookmark"], #pageAction-panel-bookmark[starred] {
+  list-style-image: url(./icons/bookmark-starred.svg)!important;
+  color: var(--lwt-text-color)!important;
+}
+
+/* Bookmark button */
+.editBookmarkPanelBottomButton[default] {
+  color: inherit!important;
+  background-color: var(--arrowpanel-dimmed)!important;
+  border-top: 1px solid var(--panel-separator-color)!important;
+}
+
+.editBookmarkPanelBottomButton[default]:hover {
+  background-color: var(--arrowpanel-dimmed-further)!important;
+}
+
+/* Bookmark confirmation prompt */
+#confirmation-hint {
+  --arrowpanel-background: var(--lwt-accent-color)!important;
+  --arrowpanel-border-color: var(--lwt-accent-color)!important;
+  --arrowpanel-color: var(--lwt-text-color)!important;
+}
+
+#confirmation-hint-message {
+  margin-inline-start: 0!important;
+}
+
+#confirmation-hint-checkmark-image, #confirmation-hint-checkmark-animation-container {
+  display:none!important;
+}
+
+
+/* Bookmark toolbar */
+#PersonalToolbar {
+  height: 32px!important;
+  background: var(--arrowpanel-background)!important;
+  color: var(--lwt-text-color)!important;
+  box-shadow: inset 0 -1px var(--toolbox-border-bottom-color)!important;
+}
+
+.browserContainer > findbar {
+  background: var(--arrowpanel-background)!important;
+  color: var(--lwt-text-color)!important;
+  box-shadow: inset 0 -1px var(--toolbox-border-bottom-color)!important;
 }
 
 /* URL Menu button */
 #pageActionButton {
-  list-style-image: url(./icons/layout.svg) !important;
+  list-style-image: url(./icons/layout.svg)!important;
 }
 
-/* Verified domain button */
+/* Security popup text */
+.identity-popup-connection-not-secure, .identity-popup-connection-secure {
+  color: var(--panel-disabled-color)!important;
+}
+
+/* Verified domain button (HTTPS) */
 #urlbar[pageproxystate="valid"] > #identity-box.verifiedDomain > #connection-icon, #identity-popup[connection^="secure"] .identity-popup-security-content {
-  list-style-image: url(./icons/lock.svg) !important;
+  list-style-image: url(./icons/lock.svg)!important;
+}
+
+#identity-popup[connection^="secure"] .identity-popup-security-content {
+  background-image: url(./icons/lock.svg)!important;
+}
+
+/* Non-verified domain button (HTTP) */
+#urlbar[pageproxystate="valid"] > #identity-box.notSecure > #connection-icon, #urlbar[pageproxystate="valid"] > #identity-box.insecureLoginForms > #connection-icon, #urlbar[pageproxystate="valid"] > #identity-box.mixedActiveContent > #connection-icon {
+  list-style-image: url(./icons/unlock.svg)!important;
+}
+
+#identity-popup[loginforms="insecure"] .identity-popup-security-content, #identity-popup[mixedcontent~="active-loaded"][isbroken] .identity-popup-security-content {
+  background-image: url(./icons/unlock.svg)!important;
 }
 
 /* URL go button */
 .urlbar-go-button {
-  list-style-image: url(./icons/go.svg) !important;
+  list-style-image: url(./icons/go.svg)!important;
 }
 
 /* Sidebar button */
 #sidebar-button {
-  list-style-image: url(./icons/sidebar.svg) !important;
+  list-style-image: url(./icons/sidebar.svg)!important;
 }
 
 /* Extension icon */
 #identity-box.extensionPage > #extension-icon {
-  list-style-image: url(./icons/extension.svg) !important;
+  list-style-image: url(./icons/extension.svg)!important;
 }
 
 /* Reader mode button */
 #reader-mode-button {
-  list-style-image: url(./icons/reader.svg) !important;
+  list-style-image: url(./icons/reader.svg)!important;
 }
 
 /* Remove top border */
 #browser-panel {
-  margin-top: -2px !important;
+  margin-top: -2px!important;
 }
 
 /* Bookmarks bar under address bar */
 #PersonalToolbar {
-  -moz-box-ordinal-group: 99 !important;
+  -moz-box-ordinal-group: 99!important;
 }
 
 /* Remove space before first tab */
 .tabbrowser-arrowscrollbox > .arrowscrollbox-scrollbox {
-  -moz-padding-end: 0 !important;
-  -moz-padding-start: 0 !important;
+  -moz-padding-end: 0!important;
+  -moz-padding-start: 0!important;
 }
 
 /* Consistent styles for tabs on bottom */
 .tabbrowser-tab[usercontextid] .tab-line {
-  background-color: var(--identity-tab-color) !important;
+  background-color: var(--identity-tab-color)!important;
 }
 
 /* New tab button custom shape */
 .tabs-newtab-button {
-  background: none !important;
-  border: 1px transparent !important;
-  margin-left: -1px !important;
-  width: 24px !important;
-  opacity: .3 !important;
+  background: none!important;
+  border: 1px transparent!important;
+  margin-left: -1px!important;
+  width: 24px!important;
+  opacity: .3!important;
 }
 
 /* Tab related */
 .tabs-newtab-button:hover {
-  opacity: 1 !important;
+  opacity: 1!important;
 }
 
 /* Tabs tweaks */
 .tabbrowser-tab {
-  margin-top: -3px !important;
-  color: var(--lwt-text-color) !important;
+  margin-top: -3px!important;
+  color: var(--lwt-text-color)!important;
 
   /* Remove borders from tabs */
-  -moz-box-align: start !important;
+  -moz-box-align: start!important;
 }
 
 /* Tabs tweaks */
 .tabbrowser-tab .tab-line {
-  margin-top: 35px !important;
-  background-color: transparent !important;
+  margin-top: 35px!important;
+  background-color: transparent!important;
 }
 
 /* Tabs tweaks */
 #tabbrowser-tabs {
-  margin-top: -3px !important;
-  position: relative !important;
+  margin-top: -3px!important;
+  position: relative!important;
   background: var(--lwt-accent-color);
 }
 
 /* Selected tab tweaks */
 tab[selected] {
-  border-left: 0 !important;
-  border-right: 0 !important;
+  border-left: 0!important;
+  border-right: 0!important;
   border-bottom: 1px solid white;
 }
 
 /* Remove space from the left (Mac OS X) */
 hbox.titlebar-placeholder {
-  display: none !important;
+  display: none!important;
 }
 
-/* Remove library button */
+/* Remove library button 
 #library-button {
-  display: none !important;
-}
+  display: none!important;
+} */
 
 /* URL bar tweaks */
 #nav-bar {
-  border-top-width: 0 !important;
-  padding-left: 70px !important;
-  padding-top: 0px !important;
-  margin-top: 17px !important;
-  padding-bottom: 0 !important;
-  background-color: transparent !important;
-  background-image: none !important;
-  border-color: transparent !important;
-  box-shadow: none !important;
+  border-top-width: 0!important;
+  padding-left: 70px!important;
+  padding-top: 0px!important;
+  margin-top: 17px!important;
+  padding-bottom: 0!important;
+  background-color: transparent!important;
+  background-image: none!important;
+  border-color: transparent!important;
+  box-shadow: none!important;
   border: 0!important;
 }
 
 /* Position tab at the bottom and more tweaks */
 #TabsToolbar {
-  background-image: linear-gradient(#f0f0f0, #f6f6f6) !important;
-  border: none !important;
-  box-shadow: none !important;
+  background-image: linear-gradient(#f0f0f0, #f6f6f6)!important;
+  border: none!important;
+  box-shadow: none!important;
   -moz-box-ordinal-group: 100;
-  margin-left: 0 !important;
-  padding-left: 0 !important;
-  padding-top: 0 !important;
+  margin-left: 0!important;
+  padding-left: 0!important;
+  padding-top: 0!important;
   position: fixed;
   bottom: -1.5em;
   width: 100%;
@@ -226,22 +289,29 @@ hbox.titlebar-placeholder {
   bottom: -32px;
 }
 
+/* Change appearance of customization menu */
+#customization-content-container, #customization-footer {
+  background: var(--lwt-accent-color)!important;
+  color: var(--lwt-text-color)!important;
+}
+
+.customizationmode-button {
+  border: none!important;
+  background: var(--arrowpanel-dimmed)!important;
+  color: var(--lwt-text-color)!important;
+}
+
 /* Tweak to make tabs perform as they should - take all the width */
 #tabbrowser-tabs { width: 100%; }
 #content-deck { margin-bottom: 32px; }
 
-.browserContainer > findbar {
-  -moz-box-ordinal-group: 0;
-  border: 0 !important;
-}
-
 /* Status bar */
 #statuspanel > #statuspanel-inner > #statuspanel-label {
-  background: rgba(0, 0, 0, 0.75) !important;
-  color:white !important;
-  border: none !important;
-  font-size: 15px !important;
-  width: 100% !important;
+  background: rgba(0, 0, 0, 0.75)!important;
+  color:white!important;
+  border: none!important;
+  font-size: 15px!important;
+  width: 100%!important;
 }
 
 /* Tweak to allow customizing css after firefox load (loads file.as.css) */
