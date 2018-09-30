@@ -2,7 +2,7 @@
 
 /* MacOS Title Bar Buttons */
 #titlebar-buttonbox{
-  margin-top: 3px;
+  margin-top: 5px;
 }
 
 /* Remove focus box and shadow effects from URL bar */
@@ -140,12 +140,25 @@
 }
 
 /* Verified domain button (HTTPS) */
-#urlbar[pageproxystate="valid"] > #identity-box.verifiedDomain > #connection-icon, #identity-popup[connection^="secure"] .identity-popup-security-content {
+#urlbar[pageproxystate="valid"] > #identity-box.verifiedDomain > #connection-icon, #urlbar[pageproxystate="valid"] > #identity-box.verifiedIdentity > #connection-icon {
   list-style-image: url(./icons/lock.svg)!important;
 }
 
-#identity-popup[connection^="secure"] .identity-popup-security-content {
+/* Verified domain popup icon (HTTPS) */
+
+#identity-popup[connection^="secure"] .identity-popup-security-content, #identity-popup[connection^="secure"] .identity-popup-security-content > #connection-icon  {
   background-image: url(./icons/lock.svg)!important;
+  fill: var(--panel-disabled-color)!important;
+}
+
+/* Verified domain text (HTTPS) */
+#urlbar[pageproxystate="valid"] > #identity-box.verifiedIdentity > #identity-icon-labels {
+  color: var(--lwt-text-color)!important;
+}
+
+/* Verified domain box (HTTPS) */
+#urlbar[pageproxystate="valid"] > #identity-box.verifiedIdentity {
+  border: none!important;
 }
 
 /* Non-verified domain button (HTTP) */
@@ -153,8 +166,10 @@
   list-style-image: url(./icons/unlock.svg)!important;
 }
 
+/* Non-verified domain popup (HTTP) */
 #identity-popup[loginforms="insecure"] .identity-popup-security-content, #identity-popup[mixedcontent~="active-loaded"][isbroken] .identity-popup-security-content {
   background-image: url(./icons/unlock.svg)!important;
+  fill: var(--panel-disabled-color)!important;
 }
 
 /* URL go button */
