@@ -1,0 +1,5 @@
+/* URL Bar */
+#urlbar input > .anonymous-div {
+    font-size: 13px !important;
+    line-height: 23px !important;
+  } 
