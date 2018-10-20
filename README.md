@@ -4,13 +4,13 @@ Work in progress. A lot of things needed to be tweaked/tested.
 
 A minimal color adaptive theme (using [VivaldiFox](https://github.com/nt1m/vivaldi-fox) for Firefox Quantum(57+).
 
-![Colorfox](https://i.imgur.com/9BiBHpu.gif)
+![Colorfox](https://i.imgur.com/JHKahOi.gif)
 
 ## Tweaks
 
 Settings used in the gif:
 
-![Customization tab](https://i.imgur.com/1ILedBv.png)
+![Customization tab](https://i.imgur.com/YRXyuTN.png)
 
 In order for custom SVG to be color adaptive, navigate to `about:config` and set `svg.context-properties.content.enabled` to `true` (should be included in user.js).
 
@@ -24,7 +24,11 @@ to uninstall VivaldiFox custom settings, remove the file `<profile_folder>/brows
 
 ## Compatability
 
-Tested on MacOS High Sierra 10.13.6 with Firefox 62.0
+Tested on:
+
+* MacOS High Sierra 10.13.6 with Firefox 62.0
+
+* MacOS Mojave 10.14 with Firefox 62.0
 
 ## Credits
 
