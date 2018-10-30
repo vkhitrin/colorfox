@@ -1,5 +1,9 @@
 /* URL Bar */
 #urlbar input > .anonymous-div {
-    font-size: 13px !important;
-    line-height: 23px !important;
-  } 
+  font-size: 13px !important;
+  line-height: 23px !important;
+} 
+
+toolbox #nav-bar {
+  -moz-binding: none!important;
+}

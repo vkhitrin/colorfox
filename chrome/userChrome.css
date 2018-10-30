@@ -133,12 +133,13 @@
   display:none!important;
 }
 
+
 /* Bookmark toolbar */
 #PersonalToolbar {
   height: 32px!important;
   background: var(--arrowpanel-background)!important;
   color: var(--lwt-text-color)!important;
-  box-shadow: inset 0 -1px var(--toolbox-border-bottom-color)!important;
+  box-shadow: inset 0 -1px var(--panel-separator-color)!important;
 }
 
 .browserContainer > findbar {
@@ -244,7 +245,7 @@
 }
 
 #tabbrowser-tabs {
-  box-shadow: inset 0 1px var(--toolbox-border-bottom-color)!important;
+  box-shadow: inset 0 1px var(--panel-separator-color)!important;
 }
 
 /* Tabs tweaks */
@@ -252,6 +253,20 @@
   margin-top: -3px!important;
   /* Remove borders from tabs */
   -moz-box-align: start!important;
+}
+
+.tab-close-button {
+  display: none !important;
+  opacity: 0.8 !important;
+}
+
+.tab-close-button:hover {
+  opacity: 1 !important;
+  fill-opacity: 0 !important;
+}
+
+.tabbrowser-tab:hover .tab-close-button {
+  display: block !important;
 }
 
 /* Tab's labels */
@@ -280,17 +295,7 @@
 tab[selected] {
   border-left: 0!important;
   border-right: 0!important;
-  text-decoration: underline;
-}
-
-/* Hovered tab tweaks */
-tab:hover {
-  text-decoration: underline;
   background-color: var(--arrowpanel-dimmed-further) !important;
-}
-
-tab[selected]:hover {
-  background-color: transparent !important;
 }
 
 /* Remove space from the left (Mac OS X) */
@@ -308,8 +313,9 @@ hbox.titlebar-placeholder {
   background-color: transparent!important;
   background-image: none!important;
   border-color: transparent!important;
-  box-shadow: none!important;
   border: 0!important;
+  box-shadow: inset 0 -1px var(--panel-separator-color)!important;
+  padding-bottom: 1.5px!important;
 }
 
 /* Position tab at the bottom and more tweaks */
@@ -318,6 +324,7 @@ hbox.titlebar-placeholder {
   border: none!important;
   box-shadow: none!important;
   -moz-box-ordinal-group: 100;
+  -moz-binding: none!important;
   margin-left: 0!important;
   padding-left: 0!important;
   padding-top: 0!important;
@@ -373,9 +380,8 @@ tooltip {
 /* Context menu */
 menupopup {
   -moz-appearance: none !important;
-  /*padding: 8px 0px 8px 0px !important;*/
   background-color: var(--lwt-accent-color)!important;
-  -moz-window-shadow: none !important;
+  border: 1px solid var(--panel-separator-color)!important;
 }
 
 /* Context menu seperator */
@@ -383,15 +389,13 @@ menuseparator {
   -moz-appearance: none !important;
   border: none !important;
   background-color: var(--panel-separator-color)!important;
-  padding: .5px 0px .5px 0px !important;
-  margin: 4px 12px 4px 12px !important;
 }
 
 /* Context menu items */
 menuitem, menu {
-		-moz-appearance: none !important;
-		color: var(--lwt-text-color)!important;
-		border: none !important;
+  -moz-appearance: none !important;
+  color: var(--lwt-text-color)!important;
+  border: none !important;
 }
 
 /* Contenxt menu disabled item */
