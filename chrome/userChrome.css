@@ -142,9 +142,12 @@
   box-shadow: inset 0 -1px var(--panel-separator-color)!important;
 }
 
+/* Find bar */
 .browserContainer > findbar {
   background: var(--arrowpanel-background)!important;
   color: var(--lwt-text-color)!important;
+  border: none !important;
+  border-top: 1px solid var(--panel-separator-color)!important;
 }
 
 /* URL Menu button */
@@ -245,7 +248,7 @@
 }
 
 #tabbrowser-tabs {
-  box-shadow: inset 0 1px var(--panel-separator-color)!important;
+  /*box-shadow: inset 0 1px var(--panel-separator-color)!important;*/
 }
 
 /* Tabs tweaks */
@@ -267,6 +270,10 @@
 
 .tabbrowser-tab:hover .tab-close-button {
   display: block !important;
+}
+
+#tabbrowser-tabs .tabbrowser-tab:hover:not([selected]) .tab-content {
+  background: var(--lwt-accent-color) !important;
 }
 
 /* Tab's labels */
@@ -318,9 +325,17 @@ hbox.titlebar-placeholder {
   padding-bottom: 1.5px!important;
 }
 
-/* Position tab at the bottom and more tweaks */
+#navigator-toolbox {
+  box-shadow: 0 1px 0 var(--panel-separator-color)!important;
+}
+
+/* Remove nav-bar bottom-line */
+#navigator-toolbox::after {
+  display: none !important;
+}
+
+/* Position tab at the bottom and more tweaksh*/
 #TabsToolbar {
-  background-image: linear-gradient(#f0f0f0, #f6f6f6)!important;
   border: none!important;
   box-shadow: none!important;
   -moz-box-ordinal-group: 100;
@@ -338,10 +353,11 @@ hbox.titlebar-placeholder {
   padding-bottom: 0px!important;
 }
 
-/* Fix tabs position at the bottom in the customization menu */
-#TabsToolbar[customizing]{
+/* Fix tabs position at the bottom in the customization menu for Firefox v57-v61 */
+/* #TabsToolbar[customizing]{
   bottom: -32px;
 }
+*/
 
 /* Change appearance of customization menu */
 #customization-content-container, #customization-footer {
@@ -356,8 +372,21 @@ hbox.titlebar-placeholder {
 }
 
 /* Tweak to make tabs perform as they should - take all the width */
-#tabbrowser-tabs { width: 100%; }
-#content-deck { margin-bottom: 32px; }
+#tabbrowser-tabs {
+   width: 100% !important;
+   height: 35px !important;
+   box-shadow: 0 -1px 0 var(--panel-separator-color)!important;
+}
+
+/* Push content up from tabs toolbar */
+#content-deck { 
+  margin-bottom: 32px !important;
+}
+
+/* Reset content position on fullscreen */
+#main-window[inFullscreen="true"] #content-deck { 
+  margin-bottom: 0px !important;
+}
 
 /* Status bar */
 #statuspanel > #statuspanel-inner > #statuspanel-label {
@@ -439,4 +468,3 @@ menucaption {
 /* Tweak to allow customizing css after firefox load (loads file.as.css) */
 #alltabs-button {
   -moz-binding: url(data:text/xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIj8+DQo8IS0tIENvcHlyaWdodCAoYykgMjAxNyBIYWdnYWkgTnVjaGkNCkF2YWlsYWJsZSBmb3IgdXNlIHVuZGVyIHRoZSBNSVQgTGljZW5zZToNCmh0dHBzOi8vb3BlbnNvdXJjZS5vcmcvbGljZW5zZXMvTUlUDQogLS0+DQoNCjwhLS0gUnVuIHVzZXJDaHJvbWUuanMvdXNlckNocm9tZS54dWwgYW5kIC51Yy5qcy8udWMueHVsLy5jc3MgZmlsZXMgIC0tPg0KPGJpbmRpbmdzIHhtbG5zPSJodHRwOi8vd3d3Lm1vemlsbGEub3JnL3hibCI+DQogICAgPGJpbmRpbmcgaWQ9ImpzIiBleHRlbmRzPSJjaHJvbWU6Ly9nbG9iYWwvY29udGVudC9iaW5kaW5ncy90b29sYmFyYnV0dG9uLnhtbCNtZW51Ij4NCiAgICAgICAgPGltcGxlbWVudGF0aW9uPg0KICAgICAgICAgICAgPGNvbnN0cnVjdG9yPjwhW0NEQVRBWw0KICAgICAgICAgICAgICAgIGlmKHdpbmRvdy51c2VyQ2hyb21lSnNNb2QpIHJldHVybjsNCiAgICAgICAgICAgICAgICB3aW5kb3cudXNlckNocm9tZUpzTW9kID0gdHJ1ZTsNCiAgICAgICAgICAgICAgICANCiAgICAgICAgICAgICAgICB2YXIgY2hyb21lRmlsZXMgPSBGaWxlVXRpbHMuZ2V0RGlyKCJVQ2hybSIsIFtdKS5kaXJlY3RvcnlFbnRyaWVzOw0KICAgICAgICAgICAgICAgIHZhciB4dWxGaWxlcyA9IFtdOw0KICAgICAgICAgICAgICAgIHZhciBzc3MgPSBDY1snQG1vemlsbGEub3JnL2NvbnRlbnQvc3R5bGUtc2hlZXQtc2VydmljZTsxJ10uZ2V0U2VydmljZShDaS5uc0lTdHlsZVNoZWV0U2VydmljZSk7DQogICAgICAgICAgICAgICAgDQogICAgICAgICAgICAgICAgd2hpbGUoY2hyb21lRmlsZXMuaGFzTW9yZUVsZW1lbnRzKCkpIHsNCiAgICAgICAgICAgICAgICAgICAgdmFyIGZpbGUgPSBjaHJvbWVGaWxlcy5nZXROZXh0KCkuUXVlcnlJbnRlcmZhY2UoQ2kubnNJRmlsZSk7DQogICAgICAgICAgICAgICAgICAgIHZhciBmaWxlVVJJID0gU2VydmljZXMuaW8ubmV3RmlsZVVSSShmaWxlKTsNCiAgICAgICAgICAgICAgICAgICAgDQogICAgICAgICAgICAgICAgICAgIGlmKGZpbGUuaXNGaWxlKCkpIHsNCiAgICAgICAgICAgICAgICAgICAgICAgIGlmKC8oXnVzZXJDaHJvbWV8XC51YylcLmpzJC9pLnRlc3QoZmlsZS5sZWFmTmFtZSkpIHsNCiAgICAgICAgICAgICAgICAgICAgICAgICAgICBTZXJ2aWNlcy5zY3JpcHRsb2FkZXIubG9hZFN1YlNjcmlwdFdpdGhPcHRpb25zKGZpbGVVUkkuc3BlYywge3RhcmdldDogd2luZG93LCBpZ25vcmVDYWNoZTogdHJ1ZX0pOw0KICAgICAgICAgICAgICAgICAgICAgICAgfQ0KICAgICAgICAgICAgICAgICAgICAgICAgZWxzZSBpZigvKF51c2VyQ2hyb21lfFwudWMpXC54dWwkL2kudGVzdChmaWxlLmxlYWZOYW1lKSkgew0KICAgICAgICAgICAgICAgICAgICAgICAgICAgIHh1bEZpbGVzLnB1c2goZmlsZVVSSS5zcGVjKTsNCiAgICAgICAgICAgICAgICAgICAgICAgIH0NCiAgICAgICAgICAgICAgICAgICAgICAgIGVsc2UgaWYoL1wuYXNcLmNzcyQvaS50ZXN0KGZpbGUubGVhZk5hbWUpKSB7DQogICAgICAgICAgICAgICAgICAgICAgICAgICAgaWYoIXNzcy5zaGVldFJlZ2lzdGVyZWQoZmlsZVVSSSwgc3NzLkFHRU5UX1NIRUVUKSkNCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgc3NzLmxvYWRBbmRSZWdpc3RlclNoZWV0KGZpbGVVUkksIHNzcy5BR0VOVF9TSEVFVCk7DQogICAgICAgICAgICAgICAgICAgICAgICB9DQogICAgICAgICAgICAgICAgICAgICAgICBlbHNlIGlmKC9eKD8hKHVzZXJDaHJvbWV8dXNlckNvbnRlbnQpXC5jc3MkKS4rXC5jc3MkL2kudGVzdChmaWxlLmxlYWZOYW1lKSkgew0KICAgICAgICAgICAgICAgICAgICAgICAgICAgIGlmKCFzc3Muc2hlZXRSZWdpc3RlcmVkKGZpbGVVUkksIHNzcy5VU0VSX1NIRUVUKSkNCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgc3NzLmxvYWRBbmRSZWdpc3RlclNoZWV0KGZpbGVVUkksIHNzcy5VU0VSX1NIRUVUKTsNCiAgICAgICAgICAgICAgICAgICAgICAgIH0NCiAgICAgICAgICAgICAgICAgICAgfQ0KICAgICAgICAgICAgICAgIH0NCiAgICAgICAgICAgICAgICANCiAgICAgICAgICAgICAgICBzZXRUaW1lb3V0KGZ1bmN0aW9uIGxvYWRYVUwoKSB7DQogICAgICAgICAgICAgICAgICAgIGlmKHh1bEZpbGVzLmxlbmd0aCA+IDApIHsNCiAgICAgICAgICAgICAgICAgICAgICAgIGRvY3VtZW50LmxvYWRPdmVybGF5KHh1bEZpbGVzLnNoaWZ0KCksIG51bGwpOw0KICAgICAgICAgICAgICAgICAgICAgICAgc2V0VGltZW91dChsb2FkWFVMLCA1KTsNCiAgICAgICAgICAgICAgICAgICAgfQ0KICAgICAgICAgICAgICAgIH0sIDApOw0KICAgICAgICAgICAgXV0+PC9jb25zdHJ1Y3Rvcj4NCiAgICAgICAgPC9pbXBsZW1lbnRhdGlvbj4NCiAgICA8L2JpbmRpbmc+DQo8L2JpbmRpbmdzPg==);
-}

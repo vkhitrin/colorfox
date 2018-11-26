@@ -3,7 +3,11 @@
   font-size: 13px !important;
   line-height: 23px !important;
 } 
-
-toolbox #nav-bar {
-  -moz-binding: none!important;
+#main-window:-moz-any([sizemode="fullscreen"],[customize-entered]) #TabsToolbar:not([collapsed="true"]) + #nav-bar,
+#main-window:not([tabsintitlebar]) #TabsToolbar:not([collapsed="true"]) + #nav-bar,
+#TabsToolbar:not([collapsed="true"]) + #nav-bar:-moz-lwtheme {
+  box-shadow: none !important;
+}
+#navigator-toolbox::after {
+  display: none !important;
 }
