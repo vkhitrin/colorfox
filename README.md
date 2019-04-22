@@ -20,13 +20,14 @@ Copy the contents of this repo to your Firefox profile (to view profile browse t
 
 To uninstall Firefox CSS, remove the contents of `chrome` directory in the profile folder.
 
+**NOTE:** VivaldiFox config file is located in a different path in latest firefox releases, use a browser theme meanwhile.
 to uninstall VivaldiFox custom settings, remove the file `<profile_folder>/browser-extension-data/@vivaldi-fox/storage.js`.
 
 ## Compatability
 
 Tested on:
 
-* MacOS High Sierra 10.13.6 with Firefox 62.0
+* MacOS High Sierra 10.13.6 with Firefox 66.0
 
 * MacOS Mojave 10.14 with Firefox 62.0
 
